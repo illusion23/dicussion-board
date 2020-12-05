@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404
 from .models import Board
 # Create your views here.
 
+
 def home(request):
 
     boards = Board.objects.all()
