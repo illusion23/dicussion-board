@@ -9,7 +9,6 @@ def home(request):
     return render(request,'home.html',{'boards':boards})
 
 
-
 def board_topics(request,board_id):
     try:
         board = Board.objects.get(pk=board_id)
