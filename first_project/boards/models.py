@@ -3,11 +3,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Board(models.Model):
-    def __str__(self):
-        return self.name
 
     name = models.CharField(max_length=50,unique=True)
     description = models.TextField(max_length=150)
+
+    def __str__(self):
+        return self.name
 
 class Topic(models.Model):
     subject = models.CharField(max_length=250)

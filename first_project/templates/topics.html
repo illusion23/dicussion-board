@@ -7,9 +7,28 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page"><a href="{%url 'home' %}"> Board </a> / {{board.name}}</li>
+          <li class="breadcrumb-item" aria-current="page"><a href="{%url 'home' %}"> Board </a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="{%url 'board_topics' board.pk %}"> {{board.name}} </a></li>        
         </ol>
     </nav>
+
+
+    <div class="container-fluid"></div>
+        {% for topic in board.topics.all%}
+            <div class="row">
+                <div class="col-6 ml-5 mt-3 shadow-lg rounded">
+                    <div>
+                      <div class="pt-2">
+                        <h3>{{ topic.subject }}</h3>
+                      </div>
+                      <div>
+                        <small class="text-muted">{{ topic.create_by.username }} [ {{ topic.create_on }} ]</small>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        {%endfor%}
+    </div>
 
 {% endblock %}
 

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title%} Boards {%endblock%}
+
+
+
+{% block content %}
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item" aria-current="page"><a href="{%url 'home' %}"> Board </a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="{%url 'board_topics' board.pk %}"> {{board.name}} </a></li>
+          <li class="breadcrumb-item active" aria-current="page"> New Topic </li>
+        </ol>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="col-6">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" class="form-control" name="subject" id="id_subject">
+            </div>
+        
+            <div class="form-group">
+                <label>Message</label>
+                <textarea name="message" class="form-control" id="id_message" rows="5"></textarea>
+            </div>
+            
+            <button class="btn btn-primary" type="submit">POST</button>
+            
+        </form>
+    </div>
+</div>
+
+
+
+
+
+{%endblock%}
